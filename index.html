@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        /* Universal Selector */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Root Selector */
+        :root {
+            --primary-color: #3498db;
+        }
+
+        /* Body Styles */
+        body {
+            display: grid;
+            place-items: center;
+            margin: 0;
+            height: 100vh;
+            padding: 0;
+            background-color: var(--primary-color);
+            background-image: url('./stacked-steps-haikei.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            animation: rotateBackground 10s infinite alternate linear;
+        }
+
+        /* Keyframes for animation */
+        @keyframes rotateBackground {
+            0% {
+                background-position: center;
+            }
+            100% {
+                background-position: top right;
+            }
+        }
+
+        /* Pseudo-element after body */
+        body::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Login Card */
+        .login-card {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 400px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        /* Login Form Styles */
+        .login-form {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .login-form > * {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .login-form :is(input, button) {
+            width: 100%;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .login-form input {
+            color: #333;
+            background: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        .login-form input::placeholder {
+            color: #888;
+        }
+
+        .login-form button {
+            cursor: pointer;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .login-form button:hover {
+            background: #2c7bbf; /* Darker shade of the primary color */
+        }
+
+        .forgot-password {
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (min-width: 448px) {
+            .login-card {
+                margin: 0 auto;
+                width: 400px;
+                min-width: 300px;
+            }
+        }
+
+        @media (min-width: 628px) {
+            .login-card {
+                position: absolute;
+                top: 50%;
+                right: 50%;
+                transform: translate(50%, -50%);
+                padding: 40px;
+                width: 500px;
+                max-width: 600px;
+                min-width: 400px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <form class="login-form">
+            <h2>Login</h2>
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            <button type="submit">Login</button>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+        </form>
+    </div>
+</body>
+</html>
